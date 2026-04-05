@@ -1,5 +1,38 @@
-<h1>FightX Game is Loading...</h1>
-<p>Developed by Thamidu Eshan</p>
-<div style="width: 400px; height: 300px; background: black; color: white; display: flex; align-items: center; justify-content: center;">
-  Game Screen
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FightX Game</title>
+    <style>
+        body { margin: 0; background: #222; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-family: sans-serif; flex-direction: column; }
+        canvas { border: 5px solid #444; background: #000; }
+    </style>
+</head>
+<body>
+    <h1>FightX - Action Game</h1>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <p>Use Arrow Keys to Move the Player</p>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let player = { x: 50, y: 50, size: 30, color: "red", speed: 5 };
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // තිරය පිරිසිදු කිරීම
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x, player.y, player.size, player.size); // Player ඇඳීම
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener("keydown", (e) => {
+            if(e.key === "ArrowUp") player.y -= player.speed;
+            if(e.key === "ArrowDown") player.y += player.speed;
+            if(e.key === "ArrowLeft") player.x -= player.speed;
+            if(e.key === "ArrowRight") player.x += player.speed;
+        });
+
+        draw();
+    </script>
+</body>
+</html>
