@@ -9,16 +9,34 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 const gravity = 0.7
 
 class sprite {
-    constructor({position, velocity}) {
+    constructor({position, velocity, color = 'red'}) {
     this.position = position
     this.velocity = velocity
+    this.width = 50
     this.height = 150
     this.lastkey
+    this.attackBox = {
+        position: this.position ,
+        width: 100,
+        height: 50,
+    }
+    this.color = color
+    this.isAttacking
+
     }
 
     draw(){
-    c.fillStyle = 'red'
-    c.fillRect(this.position.x, this.position.y, 50, this.height)   
+    c.fillStyle = this.color
+    c.fillRect(this.position.x, this.position.y, this.width, this.height)   
+    
+
+    //attack box
+    c.fillStyle = 'green'
+    c.fillRect(
+    this.attackBox.position.x, 
+    this.attackBox.position.y, 
+    this.attackBox.width, 
+    this.attackBox.height)
     }
 
     update() {
@@ -29,8 +47,15 @@ class sprite {
 
       if(this.position.y + this.height + this.velocity.y >= canvas.height){
         this.velocity.y = 0
-      }else
+      }else 
         this.velocity.y += gravity
+    }
+
+    attack() {
+        this.isAttacking = true
+        setTimeout(() => {
+            this.isAttacking = false
+        }, 100)
     }
 }
 
@@ -55,7 +80,8 @@ position: {
 velocity: {
     x: 0,
     y: 0
-}
+},
+color: 'blue'
 })
 
 
@@ -104,6 +130,15 @@ function animate() {
     } else if (keys.ArrowRight.pressed && enemy.lastkey === 'ArrowRight'){
         enemy.velocity.x = 5
     }
+    // detection for collision
+    if (player.attackBox.position.x + player.attackBox.width>=enemy.position.x && 
+        player.attackBox.position.x <= enemy.position.x + enemy.width &&
+        player.attackBox.position.y + player.attackBox.height >= enemy.position.y&& 
+        player.attackBox.position.y <= enemy.position.y + enemy.height &&
+        player.isAttacking
+    ){
+        console.log('go')
+    }
 }
 
 animate()
@@ -121,6 +156,9 @@ switch(event.key) {
     break
     case 'w':
     player.velocity.y = -20
+    break
+    case ' ':
+        player.attack()
     break
 
     case 'ArrowRight':
