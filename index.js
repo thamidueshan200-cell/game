@@ -35,14 +35,14 @@ class sprite {
     
 
     //attack box
-    //if (this.isAttacking) {
+    if (this.isAttacking) {
     c.fillStyle = 'green'
     c.fillRect(
         this.attackBox.position.x, 
         this.attackBox.position.y, 
         this.attackBox.width, 
         this.attackBox.height)
-    //}
+    }
     
     }
 
@@ -185,7 +185,6 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) =>{
-console.log(event.key)
 switch(event.key) {
     case 'd':
     keys.d.pressed = true
@@ -213,8 +212,11 @@ switch(event.key) {
     case 'ArrowUp':
     enemy.velocity.y = -20
         break
+    case 'ArrowDown':
+    enemy.isAttacking = true
+        break
 }
-    console.log(event.key)
+
 })
 
 window.addEventListener('keyup', (event) =>{
@@ -236,5 +238,5 @@ switch(event.key) {
     keys.ArrowLeft.pressed = false
     break
 }
-    console.log(event.key)
+
 })
