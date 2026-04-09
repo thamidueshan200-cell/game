@@ -10,6 +10,7 @@ class Sprite {
         this.width = 50
         this.height = 150
         this.image = new Image()
+        this.image.onload = () => {this.onload = true}
         this.image.src = imageSrc
         this.scale = scale
         this.framesMax = framesMax
@@ -20,6 +21,7 @@ class Sprite {
     }
 
     draw(){
+        if (!this.onload) return
         c.drawImage( 
             this.image, 
             this.framesCurrent * (this.image.width / this.framesMax), 
