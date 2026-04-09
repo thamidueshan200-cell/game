@@ -103,7 +103,7 @@ class Fighter extends Sprite {
         this.animatedFrames()
       
         this.attackBox.position.x = this.position.x + this.attackBox.offset.x
-        this.attackBox.position.y = this.position.y
+        this.attackBox.position.y = this.position.y + this.attackBox.offset.y
 
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
@@ -111,7 +111,7 @@ class Fighter extends Sprite {
         //gravity function
       if(this.position.y + this.height + this.velocity.y >= canvas.height - 96){
         this.velocity.y = 0
-        this.position.y = 330}
+        this.position.y = canvas.height - 96 - this.height}
       else {this.velocity.y += gravity
       }
  }
