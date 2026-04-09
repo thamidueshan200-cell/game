@@ -13,7 +13,7 @@ const background = new Sprite({
         x: 0,
         y: 0
 },
-imageSrc: '/img/background.png'
+imageSrc: './img/background.png'
 })
 
 const shop = new Sprite({ 
@@ -21,7 +21,7 @@ const shop = new Sprite({
         x: 617,
         y: 160
 },
-imageSrc: '/img/shop.png',
+imageSrc: './img/shop.png',
 scale: 2.5,
 framesMax: 6
 })
@@ -38,7 +38,7 @@ offset: {
     x: 0,
     y: 0
 },
-imageSrc: '/img/samuraiMack/idle.png',
+imageSrc: './img/samuraiMack/idle.png',
 framesMax: 8,
 scale: 2.5,
 offset: {
@@ -46,23 +46,23 @@ x: 215,
 y: 156},
 Sprites: {
     idle: {
-        imageSrc: '/img/samuraiMack/idle.png',
+        imageSrc: './img/samuraiMack/idle.png',
         framesMax: 8
     },
     run: {
-        imageSrc: '/img/samuraiMack/Run.png',
+        imageSrc: './img/samuraiMack/Run.png',
         framesMax: 8
     },
     jump: {
-        imageSrc: '/img/samuraiMack/Jump.png',
+        imageSrc: './img/samuraiMack/Jump.png',
         framesMax: 2
     },
     fall: {
-        imageSrc: '/img/samuraiMack/Fall.png',
+        imageSrc: './img/samuraiMack/Fall.png',
         framesMax: 2
     },
     attack1: {
-        imageSrc: '/img/samuraiMack/Attack1.png',
+        imageSrc: './img/samuraiMack/Attack1.png',
         framesMax: 6}
 
 }})
@@ -81,7 +81,7 @@ offset: {
     x: -50,
     y: 0
 },
-imageSrc: '/img/kenji/Jump.png',
+imageSrc: './img/kenji/Jump.png',
         framesMax: 4,
         scale: 2.5,
         offset: {
@@ -90,19 +90,19 @@ imageSrc: '/img/kenji/Jump.png',
 },
 Sprites: {
     idle: {
-imageSrc: '/img/kenji/idle.png',
+imageSrc: './img/kenji/idle.png',
         framesMax: 4
     },
     run: {
-        imageSrc: '/img/kenji/Run.png',
+        imageSrc: './img/kenji/Run.png',
         framesMax: 8
     },
     fall: {
-        imageSrc: '/img/kenji/Fall.png',
+        imageSrc: './img/kenji/Fall.png',
         framesMax: 2
     },
     attack1: {
-        imageSrc: '/img/kenji/Attack1.png',
+        imageSrc: './img/kenji/Attack1.png',
         framesMax: 4}
 
     
