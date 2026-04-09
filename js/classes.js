@@ -93,8 +93,8 @@ class Fighter extends Sprite {
     this.Sprites = Sprites
 
     for (const Sprite in this.Sprites) {
-        Sprites[Sprite].image = new Image()
-        Sprites[Sprite].image.src = Sprites[Sprite].imageSrc
+        this.Sprites[Sprite].image = new Image()
+        this.Sprites[Sprite].image.src = this.Sprites[Sprite].imageSrc
 }
 }
 

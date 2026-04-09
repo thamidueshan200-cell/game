@@ -103,7 +103,11 @@ imageSrc: './img/kenji/idle.png',
     },
     attack1: {
         imageSrc: './img/kenji/Attack1.png',
-        framesMax: 4}
+        framesMax: 4
+    },
+    jump: {
+        imageSrc: './img/kenji/Jump.png',
+        framesMax: 2}
 
     
 }})
