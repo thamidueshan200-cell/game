@@ -68,7 +68,11 @@ sprites: {
     takehit: {
         imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
         framesMax: 4
-    }
+    },
+    death: {
+        imageSrc: './img/samuraiMack/Death.png',
+        framesMax: 6
+     }
 },
     
     attackBox: {
@@ -126,7 +130,12 @@ imageSrc: './img/kenji/Idle.png',
         takehit: {
         imageSrc: './img/kenji/Take Hit.png',
         framesMax: 3
-    }},
+    },
+    death: {
+        imageSrc: './img/kenji/Death.png',
+        framesMax: 7
+    }
+},
  
     attackBox: {
         offset: {
@@ -233,6 +242,7 @@ function animate() {
         player.isAttacking = false
     }
 
+    // detection for collision & player gets hit
         if (
         rectangularcollision({
             rectangle1: enemy,
@@ -242,7 +252,7 @@ function animate() {
     ){
         enemy.isAttacking = false
         player.takehit()
-         document.querySelector('#playerHealth').style.width = player.health + '%'
+        document.querySelector('#playerHealth').style.width = player.health + '%'
     }
 
    // if enemy misses
@@ -259,6 +269,7 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) =>{
+    if (!player.dead) {
 switch(event.key) {
     case 'd':
     keys.d.pressed = true
@@ -274,7 +285,12 @@ switch(event.key) {
     case ' ':
         player.attack()
         break
+}
+    }
 
+if (!enemy.dead) { 
+
+switch(event.key) {
     case 'ArrowRight':
     keys.ArrowRight.pressed = true
     enemy.lastKey = 'ArrowRight'
@@ -289,8 +305,8 @@ switch(event.key) {
     case 'ArrowDown':
     enemy.attack()
         break
+    }
 }
-
 })
 
 window.addEventListener('keyup', (event) =>{
