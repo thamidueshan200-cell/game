@@ -46,7 +46,7 @@ x: 215,
 y: 156},
 sprites: {
     idle: {
-        imageSrc: './img/samuraiMack/idle.png',
+        imageSrc: './img/samuraiMack/Idle.png',
         framesMax: 8
     },
     run: {
@@ -90,7 +90,7 @@ imageSrc: './img/kenji/Jump.png',
 },
 sprites: {
     idle: {
-imageSrc: './img/kenji/idle.png',
+imageSrc: './img/kenji/Idle.png',
         framesMax: 4
     },
     run: {
